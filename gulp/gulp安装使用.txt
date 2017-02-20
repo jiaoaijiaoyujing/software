@@ -1,0 +1,85 @@
+﻿   Gulp 安装及使用
+一、安装：
+
+1、在项目目录中  git Bash  
+2、npm  init  -y      生成一个安装依赖的文件
+3、npm install gulp  --save-dev
+4、出现版本号为安装成功
+
+二 、创建gulp
+     gulp需要一个文件作为它的主文件，在gulp中这个文件叫做gulpfile.js。新建一个文件名为gulpfile.js的文件，然后放到项目目录中。之后要做的事情就是在gulpfile.js文件中定义我们的任务了。
+       // 引入依赖
+     var gulp = require('gulp');
+      // 第一个任务
+     gulp.task('first',function(){
+          console.log('hello world');
+     });
+
+此时我们的目录结构是这样子的：
+├── gulpfile.js
+├── node_modules
+│ └── gulp
+└── package.json
+
+三、运行gulp
+1、配置   package.js
+          "scripts": {
+		    "test": "echo \"Error: no test specified\" && exit 1",
+		    "gulp": "gulp"
+	  }
+
+2、执行任务     npm  run  gulp（配置名）  任务名
+
+四、API 介绍
+
+使用gulp，仅需知道4个API即可：   gulp.task(),    gulp.src(),    gulp.dest(),    gulp.watch()，所以很容易就能掌握，但有几个地方需理解透彻才行。
+
+1、gulp.task( )
+     
+     gulp.task('mytask', ['array', 'of', 'task', 'names'], function() { //定义一个有依赖的任务 
+          // Do something
+    });
+
+    第二个参数-数组是当前定义的任务需要依赖的其他任务。当前定义的任务会在所有依赖的任务执行完毕后才开始执行。如果没有依赖，则可省略这个参数，函数参数为任务函数，我们把任务要执行的代码都写在里面。该参数也是可选的。
+
+2、gulp.src( )；
+ 
+    gulp.src(['js/*.js','css/*.css','*.html'])
+    
+    src  的参数是文件匹配模式(类似正则表达式)，用来匹配文件路径(包括文件名)，当然这里也可以直接指定某个具体的文件路径。当有多个匹配模式时，该参数可以为一个数组。
+     
+
+3、gulp.watch( )
+
+	gulp.task('listenTask', ['     '],function(){
+	     gulp.watch('js/**/*.js', function(){   
+	          console.log('js目录下的js发生了改变');                    //按ctrl + c 结束监听任务
+	     })    
+	})
+
+
+     参数同格式相同，第一个参数也是文件匹配模式(类似正则表达式)，用来匹配文件路径(包括文件名)； 第二个是依赖任务名，第三个是执行函数，第一二个参数不是必要参数。
+
+4、gulp.dest( )  
+
+        gulp.task('transformCSS', ['clean'], function(){
+      		gulp.watch('css/**/*.less', function(){
+		          gulp.src('css/**/*.less').          
+		          pipe(gulpless()).                //  过滤操作将less转换成css          
+		          pipe(autoprex()).                //css自动前缀匹配的生成         
+		          pipe(concat('abc.css')).         //合并并生成  abc.css          
+		          pipe(cleancss()).                //css的压缩工作          
+		          pipe(gulp.dest('dist/css'))   写入路径，路径可以为生成的新路径     
+            })
+		})
+          gulp的使用流程一般是这样子的：首先通过gulp.src()方法获取到我们想要处理的文件流，然后把文件流通过pipe方法导入到gulp的插件中，最后把经过插件处理后的流再通过pipe方法导入到gulp.dest()中，gulp.dest()方法则把流中的内容写入到文件中，这里首先需要弄清楚的一点是，我们给gulp.dest()传入的路径参数，只能用来指定要生成的文件的目录，而不能指定生成文件的文件名，它生成文件的文件名使用的是导入到它的文件流自身的文件名，所以生成的文件名是由导入到它的文件流决定的，即使我们给它传入一个带有文件名的路径参数，然后它也会把这个文件名当做是目录名
+
+五、常用插件
+
+var gulpless = require('gulp-less');                      //引入我们less自动化模块
+var cleancss = require('gulp-clean-css');                 //引入我们css压缩模块
+var autoprex = require('gulp-autoprefixer');              //引入我们less转换css依赖
+var concat = require('gulp-concat');                      //文件拼接，把多个文件拼接成一个文件
+var clean = require('gulp-clean');                        //删除文件模块
+var browserSync = require('browser-sync').create();       //npm install browser-sync gulp --save-dev实时更新
+     

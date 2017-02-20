@@ -1,0 +1,135 @@
+一  、安装
+
+二  、命名本机git名称和git验证邮箱
+
+     命令 1 .   git config --global user.name "你的git名称"
+
+     命令2.     git config --global user.email "你的git验证邮箱"
+
+三  、初始化   git  init
+
+四  、提交配置  
+
+（一）、生成id
+
+命令1. ssh-keygen  -t rsa –C “yuan.peng.cheng@163.com” 然后两下回车
+
+（二）、找到公钥写入网站
+
+id_rsa和id_rsa.pub两个文件，这两个就是SSH Key的秘钥对，
+id_rsa是私钥，不能泄露出去，id_rsa.pub是公钥
+
+
+准备：
+1、进暂存区git add .
+2、从暂存区到本地库 git commit -m'注释内容'
+3、git status
+
+三、push到远程服务器。
+命令0. git remote rm origin
+
+命令1. git remote add origin git@github.com:PengchengYuan/takeaway.git
+
+命令2. git push -u origin master 将本地的库推送到master分支 （就是推送到服务器上）
+
+从此以后，只需要git push origin master就可以吧本机的推送过去了。
+
+
+
+*******************************************************************************************
+
+
+
+命令1. git remote add origin https://github.com/PengchengYuan/takeaway.git
+
+命令2. git push -u origin master 将本地的库推送到master分支 （就是推送到服务器上）
+
+从此以后，只需要git push origin master就可以吧本机的推送过去了。
+
+
+注：一.如果输入$ git remote add origin git@github.com:PengchengYuan/takeaway.git
+ 
+    提示出错信息：fatal: remote origin already exists.
+    
+    解决办法如下：
+    1、先输入$ git remote rm origin
+    2、再输入$ git remote add origin git@github.com:PengchengYuan/MeiLiShuo.git 就不会报错了（git push -u origin master）
+    3、如果输入$ git remote rm origin 还是报错的话，error: Could not remove config section 'remote.origin'. 我们需要修改gitconfig文件的内容     
+    4、找到你的github的安装路径，我的是C:\Users\ASUS\AppData\Local\GitHub\PortableGit_ca477551eeb4aea0e4ae9fcd3358bd96720bb5c8\etc
+    5、找到一个名为gitconfig的文件，打开它把里面的[remote "origin"]那一行删掉就好了！ 
+
+   二、提示出错信息：! [rejected]        master -> master (fetch first)
+    解决办法如下：
+    git push -f
+
+
+
+------------------------------------------------------------------------------------------------------
+本地分支管理
+
+查看分支
+git branch或者git branch -v
+ 
+A) 创建分支
+git branch mystudygit1.0
+ 
+B) 切换分支
+git checkout mystudygit1.0
+ 
+C) 删除分支
+git branch -d mystudygit1.0  //如果该分支没有合并到主分支会报错
+或者
+git branch -D mystudygit1.0   //强制删除
+
+D) 分支合并
+比如，如果要将开发中的分支（develop），合并到稳定分支（master），
+首先切换的master分支：git checkout master。
+然后执行合并操作：git merge develop。
+如果有冲突，会提示你，调用git status查看冲突文件。
+解决冲突，然后调用git add或git rm将解决后的文件暂存。
+所有冲突解决后，git commit 提交更改。
+例如：将acc2f69提交合并到当前分支
+git merge acc2f69 
+E）合并
+
+
+
+远程管理
+
+删除远程分支：
+
+git push origin --delete branchName
+
+重命名本地分支：
+
+git branch -m devel develop
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

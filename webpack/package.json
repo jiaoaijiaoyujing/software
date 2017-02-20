@@ -1,0 +1,29 @@
+{
+  "name": "PengchengYuanTool",
+  "version": "1.0.0",
+  "description": "gulpfile.js",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gulp": "gulp",
+    "server": "gulp server",
+    "clean": "gulp clean",
+    "bundlecss": "gulp bundle",
+    "watch": "webpack -w",
+    "bundlejs": "webpack -p"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.18.8",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-clean-css": "^2.3.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-less": "^3.3.0",
+    "jquery": "^3.1.1",
+    "webpack": "^1.14.0"
+  }
+}

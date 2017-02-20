@@ -1,0 +1,2 @@
+一路next
+npm install http-server -g	//server服务器

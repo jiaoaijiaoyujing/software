@@ -1,0 +1,52 @@
+﻿一、安装webpack
+1、在项目根目录git bash here；
+2、输入 npm init -y    自动的生成 package.json(插件的依赖列表)，方便于
+你日后与别人或者自己通过 npm install 进行下载
+3、配置 package.json；
+	  "scripts": {
+		    "test": "echo \"Error: no test specified\" && exit 1",
+		    "watch": "webpack -w"
+	  }
+4、npm install webpack --save-dev    把webpack下载到当前文件夹目录中
+   若有 package.json；可直接 npm install 
+
+5、使用
+
+  输入npm run + package.json配置好的名
+
+6、对 webpack.config.js 进行配置
+
+	var webpack = require('webpack'); //加载webpack模块
+
+	//进行一定的配置
+
+	module.exports = {
+		entry: {
+		  all: './js/index.js'           //入口js文件
+		},
+		output: {
+		  path: './js',                 //入口js文件在经过webpack处理之后，希望它输出到哪个目录下
+		  filename: '[name].js'			//name为entry下的all，可更改
+		}
+	}
+二、模块化使用
+1、模块暴露
+		module.exports = obj;
+2、引入依赖
+		var moudel = require('./moudle/moudle.js');   //注意：同级目录   ./           上级目录   ../
+3、webpack处理输出
+4、html引入：用script 引入webpack输出的js；
+
+------------------------------------------React---------------------------------------------
+npm install react --save-dev
+npm install react-dom --save-dev
+npm install classnames --save-dev
+npm install babel-core --save-dev
+npm install babel-loader --save-dev
+npm install babel-preset-es2015 --save-dev
+npm install babel-preset-react --save-dev
+npm install todomvc-common --save-dev
+npm install todomvc-app-css --save-dev
+npm install jquery --save-dev
+npm install webpack-dev-server --save-dev
+npm install -g browser-sync   //实时刷新
