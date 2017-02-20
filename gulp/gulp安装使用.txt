@@ -81,5 +81,5 @@ var cleancss = require('gulp-clean-css');                 //引入我们css压�
 var autoprex = require('gulp-autoprefixer');              //引入我们less转换css依赖
 var concat = require('gulp-concat');                      //文件拼接，把多个文件拼接成一个文件
 var clean = require('gulp-clean');                        //删除文件模块
-var browserSync = require('browser-sync').create();       //npm install browser-sync gulp --save-dev实时更新
+var browserSync = require('browser-sync').create();       //js.css.html实时更新   npm install browser-sync gulp --save-dev
      

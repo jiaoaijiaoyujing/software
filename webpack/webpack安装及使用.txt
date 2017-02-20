@@ -48,5 +48,4 @@ npm install babel-preset-react --save-dev
 npm install todomvc-common --save-dev
 npm install todomvc-app-css --save-dev
 npm install jquery --save-dev
-npm install webpack-dev-server --save-dev
-npm install -g browser-sync   //实时刷新
+npm install webpack-dev-server --save-dev   //js实时刷新
