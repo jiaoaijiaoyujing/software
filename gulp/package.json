@@ -6,7 +6,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "gulp": "gulp",
-    "server": "gulp server",
     "clean": "gulp clean",
     "bundlecss": "gulp bundle",
     "watch": "webpack -w",

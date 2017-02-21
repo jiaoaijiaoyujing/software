@@ -71,28 +71,26 @@ id_rsa是私钥，不能泄露出去，id_rsa.pub是公钥
 git branch或者git branch -v
  
 A) 创建分支
-git branch mystudygit1.0
+git branch name 或 git checkout -b name 
  
 B) 切换分支
-git checkout mystudygit1.0
+git checkout mane
  
 C) 删除分支
-git branch -d mystudygit1.0  //如果该分支没有合并到主分支会报错
+git branch -d name  //如果该分支没有合并到主分支会报错
 或者
-git branch -D mystudygit1.0   //强制删除
+git branch -D name   //强制删除
 
 D) 分支合并
-比如，如果要将开发中的分支（develop），合并到稳定分支（master），
+
+如果要将开发中的分支（name），合并到稳定分支（master），
 首先切换的master分支：git checkout master。
-然后执行合并操作：git merge develop。
+然后执行合并操作：git merge name。
 如果有冲突，会提示你，调用git status查看冲突文件。
 解决冲突，然后调用git add或git rm将解决后的文件暂存。
 所有冲突解决后，git commit 提交更改。
 例如：将acc2f69提交合并到当前分支
 git merge acc2f69 
-E）合并
-
-
 
 远程管理
 
