@@ -4,17 +4,12 @@
 你日后与别人或者自己通过 npm install 进行下载
 3、配置 package.json；
 	  "scripts": {
-		    "test": "echo \"Error: no test specified\" && exit 1",
-		    "watch": "webpack -w"
+		    "test": "echo \"Error: no test specified\" && exit 1",	   
 	  }
 4、npm install webpack --save-dev    把webpack下载到当前文件夹目录中
    若有 package.json；可直接 npm install 
 
-5、使用
-
-  输入npm run + package.json配置好的名
-
-6、对 webpack.config.js 进行配置
+5、对 webpack.config.js 进行配置
 
 	var webpack = require('webpack'); //加载webpack模块
 
@@ -29,7 +24,13 @@
 		  filename: '[name].js'			//name为entry下的all，可更改
 		}
 	}
+6.5、使用
+
+  输入npm run + package.json中配置好的名
+
 二、模块化使用
+
+
 1、模块暴露
 		module.exports = obj;
 2、引入依赖
@@ -45,7 +46,7 @@ npm install babel-core --save-dev
 npm install babel-loader --save-dev
 npm install babel-preset-es2015 --save-dev
 npm install babel-preset-react --save-dev
-npm install todomvc-common --save-dev
-npm install todomvc-app-css --save-dev
 npm install jquery --save-dev
 npm install webpack-dev-server --save-dev   //js实时刷新
+npm install whatwg-fetch --save-dev          //ajax框架
+npm install react-waypoint --save-dev         //懒加载    
